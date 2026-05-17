@@ -117,7 +117,7 @@ export default function Contact() {
               variants={itemVariants}
               className="text-white/60 text-lg md:text-xl"
             >
-              Let's discuss your next project
+              Let&apos;s discuss your next project
             </motion.p>
           </div>
 

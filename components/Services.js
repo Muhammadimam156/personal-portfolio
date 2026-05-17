@@ -160,7 +160,7 @@ export default function Services() {
               Ready to get started?
             </h3>
             <p className="text-white/70 mb-6 text-lg">
-              Let's discuss your project and how I can help bring your ideas to life.
+              Let&apos;s discuss your project and how I can help bring your ideas to life.
             </p>
             <a
               href="#contact"
