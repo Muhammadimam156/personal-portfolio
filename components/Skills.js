@@ -24,7 +24,7 @@ import {
 } from 'react-icons/si';
 
 export default function Skills() {
-  const { ref, inView } = useInView({ threshold: 0.2, triggerOnce: true });
+  const { ref, inView } = useInView({ threshold: 0.1, triggerOnce: true });
 
   const skills = [
     {
@@ -163,8 +163,8 @@ export default function Skills() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           variants={containerVariants}
-          initial="hidden"
-          animate={inView ? 'visible' : 'hidden'}
+          initial="visible"
+          animate={inView ? 'visible' : 'visible'}
         >
           {/* Section Header */}
           <div className="text-center mb-16">
@@ -185,8 +185,8 @@ export default function Skills() {
           {/* Skills Grid */}
           <motion.div
             variants={containerVariants}
-            initial="hidden"
-            animate={inView ? 'visible' : 'hidden'}
+            initial="visible"
+            animate={inView ? 'visible' : 'visible'}
             className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6"
           >
             {skills.map((skill, index) => {

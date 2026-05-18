@@ -32,7 +32,7 @@ export default function Navbar() {
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         isScrolled
           ? 'bg-dark-bg/80 backdrop-blur-xl border-b border-white/5'
-          : 'bg-transparent'
+          : 'bg-dark-bg/40 md:bg-transparent backdrop-blur-md md:backdrop-blur-none'
       }`}
       initial={{ y: -100 }}
       animate={{ y: 0 }}
