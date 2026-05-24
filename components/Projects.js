@@ -1,5 +1,6 @@
 'use client';
 
+import Image from 'next/image';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import { FiExternalLink, FiGithub } from 'react-icons/fi';
@@ -10,31 +11,32 @@ export default function Projects() {
   const projects = [
     {
       id: 1,
-      title: 'AI Clinic Website',
-      description: 'A modern healthcare platform for AI-powered medical consultations with appointment booking and patient management.',
-      tags: ['Next.js', 'React', 'Tailwind CSS', 'Stripe'],
-      image: '🏥',
-      liveLink: '#',
-      githubLink: '#',
+      title: 'Apex AI Platform',
+      description: 'An AI-powered modern web platform designed to deliver intelligent tools with a clean and interactive UI. Built with a focus on performance, responsiveness, and user-friendly experience.',
+      tags: ["Next.js", "React", "Tailwind CSS", "JavaScript", "Vercel"],
+      image: '/ai saas landing page hero section.png',
+      liveLink: 'https://apexaiplatform.vercel.app/',
+      githubLink: 'https://github.com/Muhammadimam156/modern-ai-platform',
     },
     {
       id: 2,
-      title: 'Forge Startup Website',
-      description: 'High-converting SaaS landing page for a cutting-edge startup with analytics dashboard and user onboarding.',
-      tags: ['Next.js', 'Framer Motion', 'Tailwind CSS', 'Firebase'],
-      image: '🚀',
-      liveLink: '#',
-      githubLink: '#',
+      title: 'Medicare AI — Clinic Management SaaS',
+      description: 'A production-ready healthcare platform engineered with the MERN stack, featuring multi-role access control for patients, doctors, and staff. It integrates the Google Gemini API to deliver AI-powered symptom analysis and automated, patient-friendly prescription explanations.',
+      tags: ["MongoDB", "Express.js", "React.js", "Node.js", "Google Gemini API", "Tailwind CSS", "JWT"],
+      image: '/ai clinic docter roll dashboard.png',
+      liveLink: 'https://medicare-ai-clinic-management-system.vercel.app/',
+      githubLink: 'https://github.com/Muhammadimam156/Hekathon-frontend',
     },
     {
       id: 3,
-      title: 'AI SaaS Landing Page',
-      description: 'Premium landing page for an AI-powered software solution with interactive demos and subscription management.',
-      tags: ['React', 'TypeScript', 'Tailwind CSS', 'Framer'],
-      image: '🤖',
-      liveLink: '#',
-      githubLink: '#',
+      title: 'Founders Forge — AI Startup Pitch Generator',
+      description: 'An AI-powered startup companion that helps entrepreneurs transform raw ideas into structured business concepts. It leverages advanced language models to generate unique startup names, catchy taglines, and comprehensive landing page content in both English and Roman Urdu, streamlining the early-stage ideation process.',
+      tags: ["MongoDB", "Express.js", "React.js", "Node.js", "Google Gemini API", "Tailwind CSS", "Framer Motion"],
+      image: '/forge founder.png',
+      liveLink: 'https://founders-forge.vercel.app/',
+      githubLink: 'https://github.com/Muhammadimam156/studio',
     },
+    
     {
       id: 4,
       title: 'Digital Agency Website',
@@ -113,7 +115,17 @@ export default function Projects() {
               >
                 {/* Project Image Placeholder */}
                 <div className="relative h-64 md:h-72 bg-gradient-to-br from-blue-500/20 to-purple-500/20 overflow-hidden flex items-center justify-center">
-                  <div className="text-6xl md:text-7xl">{project.image}</div>
+                  {project.image.startsWith('/') ? (
+                    <Image
+                      src={project.image}
+                      alt={project.title}
+                      fill
+                      className="object-cover"
+                      priority={project.id === 1}
+                    />
+                  ) : (
+                    <div className="text-6xl md:text-7xl">{project.image}</div>
+                  )}
                   <div className="absolute inset-0 bg-gradient-to-t from-dark-bg to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                 </div>
 
@@ -166,7 +178,7 @@ export default function Projects() {
             className="mt-12 text-center"
           >
             <a
-              href="https://github.com"
+              href="https://github.com/Muhammadimam156?tab=repositories"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-block px-8 py-3 border border-white/20 rounded-lg text-white font-semibold hover:bg-white/10 transition-all duration-300"
