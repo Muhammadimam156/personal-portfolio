@@ -47,7 +47,7 @@ export default function Contact() {
     {
       name: 'WhatsApp',
       icon: FaWhatsapp,
-      href: 'https://wa.me/03440238567',
+      href: 'https://wa.me/03112611956',
       color: 'hover:text-green-400',
     },
     {
@@ -236,7 +236,7 @@ export default function Contact() {
                     </div>
                     <div>
                       <p className="text-white/60 text-sm">WhatsApp</p>
-                      <p className="text-white font-semibold">0344 0238567</p>
+                      <p className="text-white font-semibold">0311 2611956</p>
                     </div>
                   </div>
                   <div className="flex items-center gap-4">
@@ -245,7 +245,7 @@ export default function Contact() {
                     </div>
                     <div>
                       <p className="text-white/60 text-sm">Phone</p>
-                      <p className="text-white font-semibold">0344 0238567</p>
+                      <p className="text-white font-semibold">0311 2611956</p>
                     </div>
                   </div>
                 </div>

@@ -135,7 +135,7 @@ export default function Hero() {
             whileInView="animate"
             className="relative flex justify-center items-center mt-8 md:mt-0"
           >
-            {/* Profile Image */}
+            {/* Circular Profile Container with Gradient Border */}
             <motion.div
               animate={{
                 y: [0, -20, 0],
@@ -145,16 +145,32 @@ export default function Hero() {
                 ease: 'easeInOut',
                 repeat: Infinity,
               }}
+              className="relative w-64 h-64 md:w-80 md:h-80"
             >
-              <Image
-                src="/profile.png"
-                alt="Profile"
-                width={450}
-                height={550}
-                className="object-cover"
-                priority
-              />
+              {/* Animated Gradient Border */}
+              <div className="absolute inset-0 bg-gradient-to-r from-blue-500 via-purple-500 to-cyan-500 rounded-full p-1 animate-spin" style={{ animationDuration: '3s' }}>
+                <div className="absolute inset-1 bg-dark-bg rounded-full" />
+              </div>
+
+              {/* Inner Circle with Image */}
+              <div className="absolute inset-1 rounded-full overflow-hidden border-2 border-transparent bg-clip-padding" style={{ backgroundImage: 'linear-gradient(#0a0e27, #0a0e27), linear-gradient(to right, #3b82f6, #8b5cf6)' }}>
+                <Image
+                  src="/profile.png"
+                  alt="Profile"
+                  width={320}
+                  height={320}
+                  className="w-full h-full object-cover"
+                  priority
+                />
+              </div>
             </motion.div>
+
+            {/* Decorative Glow */}
+            <motion.div
+              className="absolute w-72 h-72 md:w-96 md:h-96 border-2 border-blue-500/30 rounded-full"
+              animate={{ scale: [1, 1.1, 1], opacity: [0.5, 0.8, 0.5] }}
+              transition={{ duration: 4, repeat: Infinity }}
+            />
           </motion.div>
         </div>
         
