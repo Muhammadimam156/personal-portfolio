@@ -11,41 +11,57 @@ export default function Projects() {
   const projects = [
     {
       id: 1,
+      title: 'Irfan Kabeer Organic Foods — E-commerce Store',
+      description: 'A full e-commerce website built for a real client selling organic desi food products across Pakistan. Includes product catalog, cart, checkout flow, and mobile-responsive design. Generated PKR 40,000+ in sales after launch.',
+      tags: ['Next.js', 'E-commerce', 'Tailwind CSS', 'Responsive Design'],
+      image: '/ikorganicfoods-cover.png', // apni screenshot yahan daalein
+      liveLink: 'https://ikorganicfoods.com',
+      githubLink: '#', // private client code — Code button khud-b-khud hide ho jayega
+      isClient: true,
+    },
+    {
+      id: 2,
       title: 'Apex AI Platform',
       description: 'An AI-powered modern web platform designed to deliver intelligent tools with a clean and interactive UI. Built with a focus on performance, responsiveness, and user-friendly experience.',
       tags: ["Next.js", "React", "Tailwind CSS", "JavaScript", "Vercel"],
       image: '/ai saas landing page hero section.png',
       liveLink: 'https://apexaiplatform.vercel.app/',
       githubLink: 'https://github.com/Muhammadimam156/modern-ai-platform',
+      isClient: false,
     },
     {
-      id: 2,
+      id: 3,
       title: 'Medicare AI — Clinic Management SaaS',
       description: 'A production-ready healthcare platform engineered with the MERN stack, featuring multi-role access control for patients, doctors, and staff. It integrates the Google Gemini API to deliver AI-powered symptom analysis and automated, patient-friendly prescription explanations.',
       tags: ["MongoDB", "Express.js", "React.js", "Node.js", "Google Gemini API", "Tailwind CSS", "JWT"],
       image: '/ai clinic docter roll dashboard.png',
       liveLink: 'https://medicare-ai-clinic-management-system.vercel.app/',
       githubLink: 'https://github.com/Muhammadimam156/Hekathon-frontend',
+      isClient: false,
     },
     {
-      id: 3,
+      id: 4,
       title: 'Founders Forge — AI Startup Pitch Generator',
       description: 'An AI-powered startup companion that helps entrepreneurs transform raw ideas into structured business concepts. It leverages advanced language models to generate unique startup names, catchy taglines, and comprehensive landing page content in both English and Roman Urdu, streamlining the early-stage ideation process.',
       tags: ["MongoDB", "Express.js", "React.js", "Node.js", "Google Gemini API", "Tailwind CSS", "Framer Motion"],
       image: '/forge founder.png',
       liveLink: 'https://founders-forge.vercel.app/',
       githubLink: 'https://github.com/Muhammadimam156/studio',
+      isClient: false,
     },
-    
     {
-      id: 4,
-      title: 'Digital Agency Website',
-      description: 'Full-featured agency website with portfolio showcase, case studies, and automated lead generation system.',
-      tags: ['Next.js', 'Tailwind CSS', 'Prisma', 'PostgreSQL'],
-      image: '📱',
-      liveLink: '#',
-      githubLink: '#',
+      id: 5,
+      title: 'PulseAI — SaaS Analytics Dashboard',
+      description: 'A React-based analytics dashboard for SaaS businesses, tracking KPIs, user metrics, and performance data through interactive charts and a clean, data-dense admin interface.',
+      tags: ['React', 'Tailwind CSS', 'Data Visualization'],
+      image: '/pulseai-dashboard.png', // screenshot lagayein
+      liveLink: 'https://saas-dashboard-react.vercel.app/',
+      githubLink: 'https://github.com/Muhammadimam156/saas-dashboard-react',
+      isClient: false,
     },
+    // ⚠️ "Digital Agency Website" hata diya gaya — dead links (#) aur emoji
+    // placeholder client ko turant fake project ka signal dete hain.
+    // Real project ho to yahan add karein isi format mein.
   ];
 
   const containerVariants = {
@@ -95,7 +111,7 @@ export default function Projects() {
               variants={itemVariants}
               className="text-white/60 text-lg md:text-xl"
             >
-              Showcasing my latest work and expertise
+              Showcasing my client work and personal builds
             </motion.p>
           </div>
 
@@ -113,7 +129,14 @@ export default function Projects() {
                 whileHover={{ y: -10 }}
                 className="group relative overflow-hidden rounded-2xl bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-xl border border-white/10 hover:border-blue-500/50 transition-all duration-300 hover:shadow-xl hover:shadow-blue-500/20"
               >
-                {/* Project Image Placeholder */}
+                {/* Real Client Badge */}
+                {project.isClient && (
+                  <span className="absolute top-4 right-4 z-10 bg-green-500/20 text-green-400 text-xs font-semibold px-3 py-1.5 rounded-full border border-green-500/40 backdrop-blur-md">
+                    ✓ Real Client • Paid Project
+                  </span>
+                )}
+
+                {/* Project Image */}
                 <div className="relative h-64 md:h-72 bg-gradient-to-br from-blue-500/20 to-purple-500/20 overflow-hidden flex items-center justify-center">
                   {project.image.startsWith('/') ? (
                     <Image
@@ -152,20 +175,28 @@ export default function Projects() {
 
                   {/* Action Buttons */}
                   <div className="flex gap-4">
-                    <a
-                      href={project.liveLink}
-                      className="flex-1 px-4 py-2.5 bg-gradient-premium rounded-lg text-white font-semibold flex items-center justify-center hover:shadow-lg hover:shadow-blue-500/50 transition-all duration-300 gap-2"
-                    >
-                      Live Demo
-                      <FiExternalLink className="w-4 h-4" />
-                    </a>
-                    <a
-                      href={project.githubLink}
-                      className="flex-1 px-4 py-2.5 border border-white/20 rounded-lg text-white font-semibold flex items-center justify-center hover:bg-white/10 transition-all duration-300 gap-2"
-                    >
-                      Code
-                      <FiGithub className="w-4 h-4" />
-                    </a>
+                    {project.liveLink !== '#' && (
+                      <a
+                        href={project.liveLink}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex-1 px-4 py-2.5 bg-gradient-premium rounded-lg text-white font-semibold flex items-center justify-center hover:shadow-lg hover:shadow-blue-500/50 transition-all duration-300 gap-2"
+                      >
+                        Live Demo
+                        <FiExternalLink className="w-4 h-4" />
+                      </a>
+                    )}
+                    {project.githubLink !== '#' && (
+                      <a
+                        href={project.githubLink}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex-1 px-4 py-2.5 border border-white/20 rounded-lg text-white font-semibold flex items-center justify-center hover:bg-white/10 transition-all duration-300 gap-2"
+                      >
+                        Code
+                        <FiGithub className="w-4 h-4" />
+                      </a>
+                    )}
                   </div>
                 </div>
               </motion.div>
